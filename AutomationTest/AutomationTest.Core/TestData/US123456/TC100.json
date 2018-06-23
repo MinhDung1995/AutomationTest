@@ -1,0 +1,45 @@
+﻿[
+  {
+    "Key": "Attribute List Origin",
+    "Type": "AttributeList",
+    "Data": [
+      {
+        "Name": "ABC",
+        "Type": "Int32",
+        "Value": 23455
+      },
+      {
+        "Name": "DEF",
+        "Type": "Int32",
+        "Value": 23455
+      }
+    ]
+  },
+  {
+    "Key": "Attribute List 1stUpdate",
+    "Type": "AttributeList",
+    "Data": [
+      {
+        "Name": "ABC",
+        "Type": "Int32",
+        "Value": 23455
+      },
+      {
+        "Name": "DEF",
+        "Type": "Int32",
+        "Value": 0
+      }
+    ]
+  },
+  {
+    "Key": "Attribute List 2ndUpdate",
+    "Type": "AttributeList",
+    "Data": [
+      {
+        "Name": "ABC",
+        "Type": "Int32",
+        "Value": 23455
+      }
+    ]
+  }
+]

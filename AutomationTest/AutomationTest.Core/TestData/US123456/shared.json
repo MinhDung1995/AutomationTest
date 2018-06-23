@@ -1,0 +1,20 @@
+﻿[
+  {
+    "Key": "Attribute XXX",
+    "Type": "Attribute",
+    "Data": {
+      "Name": "ABC",
+      "Type": "Int32",
+      "Value":  23455
+    }
+  },
+  {
+    "Key": "Private File",
+    "Type": "File",
+    "Data": {
+      "AutoGenerate": {
+        "nMegaByte": 1
+      }
+    }
+  }
+]

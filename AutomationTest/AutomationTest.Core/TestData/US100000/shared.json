@@ -1,0 +1,55 @@
+﻿[
+    {
+        "Key": "FolderNoEntities",
+        "Type": "Folder",
+        "Data": {
+            "Name": "Folder XXX"
+        }
+    },
+    {
+        "Key": "FolderFullEntities",
+        "Type": "Folder",
+      "Data": {
+        "Name": "Folder ABC",
+        "Files": [
+          {
+            "Name": "File ABC",
+            "Data": [ 1, 3, 0, 0 ]
+          },
+          {
+            "Name": "File AutoGenerator",
+            "Data": {
+              "AutoGenerate": {
+                "nMegaByte": 1
+              }
+            }
+          }
+        ],
+        "Attributes": [
+          {
+            "Name": "Attribute 1",
+            "Type": "JSON",
+            "Value": "{\"data\" : \"123\"}"
+          },
+          {
+            "Name": "Attribute AutoGenerator",
+            "Type": "JSON",
+            "Value": {
+              "AutoGenerate": {
+                "nMegaByte": 1
+              }
+            }
+          },
+          {
+            "Name": {
+              "AutoGenerate": {
+                "Length": 1
+              }
+            },
+            "Type": "JSON",
+            "Value": "Name is autogenerator by specific length"
+          }
+        ]
+      }
+    }
+]
