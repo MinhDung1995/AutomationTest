@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using App.Entities;
+using LiteDB;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -15,14 +17,34 @@ namespace AutomationTest.Script
         public static void AutomationTestIntialize(TestContext testContext)
         {
             // Clear Data In Db
-            Debug.WriteLine("1st");
+            LiteDatabase db = new LiteDatabase("demo.db");
+            db.GetCollection<Folder>("Data").Delete(x => x.CreatedDateTime < DateTime.Now);
+            List<LiteFileInfo> infoList = db.FileStorage.FindAll().ToList();
+            infoList.ForEach(info =>
+            {
+                db.FileStorage.Delete(info.Id);
+            });
+
+            int count = db.GetCollection<Folder>("Data").Count();
+            Debug.WriteLine("1st - " + count);
         }
 
         [AssemblyCleanup]
         public static void AutomationTestCleanup()
         {
             // Clear Data In Db
-            Debug.WriteLine("save the best for the last");
+            LiteDatabase db = new LiteDatabase("demo.db");
+            int countBefore = db.GetCollection<Folder>("Data").Count();
+
+            db.GetCollection<Folder>("Data").Delete(x => x.CreatedDateTime < DateTime.Now);
+            List<LiteFileInfo> infoList = db.FileStorage.FindAll().ToList();
+            infoList.ForEach(info =>
+            {
+                db.FileStorage.Delete(info.Id);
+            });
+
+            int countAfter = db.GetCollection<Folder>("Data").Count();
+            Debug.WriteLine("save the best for the last - " + countBefore + "-" + countAfter);
         }
     }
 }
