@@ -12,8 +12,11 @@
     "Key": "Private File",
     "Type": "File",
     "Data": {
-      "AutoGenerate": {
-        "nMegaByte": 1
+      "Name": "File AutoGenerator",
+      "Data": {
+        "AutoGenerate": {
+          "nMegaByte": 1
+        }
       }
     }
   }

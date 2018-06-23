@@ -7,7 +7,7 @@ namespace AutomationTest.Core.Helpers
 {
     public static class TestDataStorage
     {
-        public static Folder GetFolder(string dataKey, string userStoryId, string testCaseId = null)
+        public static Folder GetFolder(string dataKey, string userStoryId, string testCaseId = "shared")
         {
             JsonTestDataReader reader = new JsonTestDataReader(userStoryId, testCaseId, dataKey);
 
@@ -18,7 +18,7 @@ namespace AutomationTest.Core.Helpers
             return folder;
         }
 
-        public static MyFile GetFile(string dataKey, string userStoryId, string testCaseId = null)
+        public static MyFile GetFile(string dataKey, string userStoryId, string testCaseId = "shared")
         {
             JsonTestDataReader reader = new JsonTestDataReader(userStoryId, testCaseId, dataKey);
 
@@ -27,12 +27,16 @@ namespace AutomationTest.Core.Helpers
             return file;
         }
 
-        public static List<MyAttribute> GetAttributeList(string v1, string userStoryId, string v2)
+        public static List<MyAttribute> GetAttributeList(string dataKey, string userStoryId, string testCaseId = "shared")
         {
-            throw new NotImplementedException();
+            JsonTestDataReader reader = new JsonTestDataReader(userStoryId, testCaseId, dataKey);
+
+            List<MyAttribute> attributeList = reader.GetTestData<List<MyAttribute>>();
+
+            return attributeList;
         }
 
-        public static MyAttribute GetAttribute(string dataKey, string userStoryId, string testCaseId = null)
+        public static MyAttribute GetAttribute(string dataKey, string userStoryId, string testCaseId = "shared")
         {
             JsonTestDataReader reader = new JsonTestDataReader(userStoryId, testCaseId, dataKey);
 

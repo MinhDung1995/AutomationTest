@@ -1,0 +1,9 @@
+1. When add new json file, remember to do the follow steps:
+	- Step 1: right click on new json file => Choose 'Properties'.
+	- Step 2: On 'Copy to Output Directory' => Choose 'Copy always'.
+	- Step 3: Rebuild solution.
+2. When update content of json file, remember to rebuild soltion.
+3. Common test data can put in shared.json each folder UserStory.
+4. Make sure your json follow rule and be valid json.
+5. If you want to make your json be pretty, use https://jsonformatter.org/.
+6. If you need validate your json, use https://jsonformatter.curiousconcept.com/.

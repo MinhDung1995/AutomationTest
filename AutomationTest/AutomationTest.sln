@@ -9,6 +9,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomationTest.Script", "Au
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Entities", "App.Entities\App.Entities.csproj", "{1A79FAE2-7078-438F-8640-16F33A61CAFF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{D11DECF9-16D0-4F22-94A4-D4309A2991B7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Note", "Note", "{C2BE3505-2BDB-4868-9B1A-8319C49B9415}"
+	ProjectSection(SolutionItems) = preProject
+		Note.txt = Note.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +34,10 @@ Global
 		{1A79FAE2-7078-438F-8640-16F33A61CAFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A79FAE2-7078-438F-8640-16F33A61CAFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A79FAE2-7078-438F-8640-16F33A61CAFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D11DECF9-16D0-4F22-94A4-D4309A2991B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D11DECF9-16D0-4F22-94A4-D4309A2991B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D11DECF9-16D0-4F22-94A4-D4309A2991B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D11DECF9-16D0-4F22-94A4-D4309A2991B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,11 +1,11 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using App.Entities;
+﻿using App.Entities;
 using AutomationTest.Core.Helpers;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace AutomationTest.Script
+namespace AutomationTest.Script.UserStories
 {
     [TestClass]
-    public class Test
+    public class US100000Test
     {
         private readonly string userStoryId = "US100000";
 
@@ -14,7 +14,7 @@ namespace AutomationTest.Script
         [DataRow("FolderFullEntities")]
         public void TestMethod1(string dataKey)
         {
-            Folder testData = TestDataStorage.GetFolder(dataKey, "US100000");
+            Folder testData = TestDataStorage.GetFolder(dataKey, userStoryId);
         }
     }
 }
