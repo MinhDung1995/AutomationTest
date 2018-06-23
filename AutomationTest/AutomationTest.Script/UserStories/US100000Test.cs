@@ -1,6 +1,7 @@
 ﻿using App.Entities;
 using AutomationTest.Core.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Diagnostics;
 
 namespace AutomationTest.Script.UserStories
 {
@@ -15,6 +16,37 @@ namespace AutomationTest.Script.UserStories
         public void TestMethod1(string dataKey)
         {
             Folder testData = TestDataStorage.GetFolder(dataKey, userStoryId);
+
+            Debug.WriteLine(userStoryId + " - TestMethod1");
+        }
+
+        [TestMethod]
+        [DataRow("FolderNoEntities")]
+        [DataRow("FolderFullEntities")]
+        [DataRow("FolderFullEntities")]
+        [DataRow("FolderFullEntities")]
+        [DataRow("FolderFullEntities")]
+        [DataRow("FolderFullEntities")]
+        [DataRow("FolderFullEntities")]
+        [DataRow("FolderFullEntities")]
+        [DataRow("FolderFullEntities")]
+        [DataRow("FolderFullEntities")]
+        [DataRow("FolderFullEntities")]
+        [DataRow("FolderFullEntities")]
+        [DataRow("FolderFullEntities")]
+        [DataRow("FolderFullEntities")]
+        [DataRow("FolderFullEntities")]
+        [DataRow("FolderFullEntities")]
+        [DataRow("FolderFullEntities")]
+        [DataRow("FolderFullEntities")]
+        [DataRow("FolderFullEntities")]
+        [DataRow("FolderFullEntities")]
+        [DataRow("FolderFullEntities")]
+        public void TestMethod2(string dataKey)
+        {
+            Folder testData = TestDataStorage.GetFolder(dataKey, userStoryId);
+
+            Debug.WriteLine(userStoryId + " - TestMethod2");
         }
     }
 }

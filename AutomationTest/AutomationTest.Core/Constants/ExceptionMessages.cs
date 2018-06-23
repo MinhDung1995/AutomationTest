@@ -1,4 +1,6 @@
-﻿namespace AutomationTest.Core.Constants
+﻿using System.Collections.Generic;
+
+namespace AutomationTest.Core.Constants
 {
     public static class ExceptionMessages
     {
@@ -13,5 +15,17 @@
             public static readonly string InvalidName = "Name Is Invalid";
             public static readonly string InvalidData = "Data Is Null";
         }
+
+        public static readonly List<string> FileExceptionMessages = new List<string>
+        {
+            File.InvalidData,
+            File.InvalidName
+        };
+
+        public static readonly List<string> FolderExceptionMessages = new List<string>
+        {
+            Folder.InvalidNameLength,
+            Folder.InvalidName
+        };
     }
 }

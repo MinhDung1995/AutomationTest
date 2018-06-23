@@ -4,8 +4,12 @@
     "Type": "Attribute",
     "Data": {
       "Name": "ABC",
-      "Type": "Int32",
-      "Value":  23455
+      "Type": "JSON",
+      "Value": {
+        "AutoGenerate": {
+          "nMegaByte": 10
+        }
+      }
     }
   },
   {
@@ -15,7 +19,7 @@
       "Name": "File AutoGenerator",
       "Data": {
         "AutoGenerate": {
-          "nMegaByte": 1
+          "nMegaByte": 10
         }
       }
     }

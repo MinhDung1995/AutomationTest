@@ -32,11 +32,56 @@
             "Value": "{\"data\" : \"123\"}"
           },
           {
+            "Name": "Attribute 2",
+            "Type": "JSON",
+            "Value": "{\"data\" : \"123\"}"
+          },
+          {
+            "Name": "Attribute 3",
+            "Type": "JSON",
+            "Value": "{\"data\" : \"123\"}"
+          },
+          {
+            "Name": "Attribute 4",
+            "Type": "JSON",
+            "Value": "{\"data\" : \"123\"}"
+          },
+          {
+            "Name": "Attribute 5",
+            "Type": "JSON",
+            "Value": "{\"data\" : \"123\"}"
+          },
+          {
+            "Name": "Attribute 6",
+            "Type": "JSON",
+            "Value": "{\"data\" : \"123\"}"
+          },
+          {
+            "Name": "Attribute 7",
+            "Type": "JSON",
+            "Value": "{\"data\" : \"123\"}"
+          },
+          {
+            "Name": "Attribute 8",
+            "Type": "JSON",
+            "Value": "{\"data\" : \"123\"}"
+          },
+          {
+            "Name": "Attribute 9",
+            "Type": "JSON",
+            "Value": "{\"data\" : \"123\"}"
+          },
+          {
+            "Name": "Attribute 10",
+            "Type": "JSON",
+            "Value": "{\"data\" : \"123\"}"
+          },
+          {
             "Name": "Attribute AutoGenerator",
             "Type": "JSON",
             "Value": {
               "AutoGenerate": {
-                "nMegaByte": 1
+                "nMegaByte": 10
               }
             }
           },
