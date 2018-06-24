@@ -1,5 +1,12 @@
 ﻿[
   {
+    "Key": "Folder Origin",
+    "Type": "Folder",
+    "Data": {
+      "Name": "Folder Origin"
+    }
+  },
+  {
     "Key": "Attribute List Origin",
     "Type": "AttributeList",
     "Data": [

@@ -2,6 +2,7 @@
 using AutomationTest.Core.Helpers;
 using LiteDB;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Diagnostics;
 using System.IO;
 
@@ -15,11 +16,26 @@ namespace AutomationTest.Script.UserStories
         [TestMethod]
         [DataRow("FolderNoEntities")]
         [DataRow("FolderFullEntities")]
-        public void TestMethod1(string dataKey)
+        public void GetFolderTest(string dataKey)
         {
-            Folder testData = TestDataStorage.GetFolder(dataKey, userStoryId);
+            Service service = new Service();
 
-            Debug.WriteLine(userStoryId + " - TestMethod1");
+            using (LiteDatabaseHelper db = new LiteDatabaseHelper())
+            {
+                // Prepare Test Data
+                Folder folder = TestDataStorage.GetFolder(dataKey, userStoryId);
+
+                // Given: I has existed folder (*) with known id in database
+                Guid id = db.Folder.Insert(folder).AsGuid;
+
+                // When: I use method GetFolder by id
+                Folder result = service.GetFolder(id);
+
+                // Then: It return exact folder's data that i want to get from database
+                Assert.IsTrue(CompareHelper.AreEqualFolders(folder, result));
+            }
+
+            Debug.WriteLine(userStoryId + " - GetFolderTest");
         }
 
         [TestMethod]
@@ -74,13 +90,15 @@ namespace AutomationTest.Script.UserStories
         [DataRow("FolderFullEntities")]
         public void TestMethod3(string dataKey)
         {
-            LiteDatabase db = new LiteDatabase("demo.db");
-            Folder testData = TestDataStorage.GetFolder(dataKey, userStoryId);
-            db.GetCollection<Folder>("Data").Insert(testData);
-            db.FileStorage.Upload(testData.Id.ToString(), "demo", new MemoryStream(testData.Files[1].Data));
+            using (LiteDatabaseHelper db = new LiteDatabaseHelper())
+            {
+                Folder testData = TestDataStorage.GetFolder(dataKey, userStoryId);
+                db.Folder.Insert(testData);
+                db.FileStorage.Upload(testData.Id.ToString(), "demo", new MemoryStream(testData.Files[1].Data));
 
-            int count = db.GetCollection<Folder>("Data").Count();
-            Debug.WriteLine(userStoryId + " - TestMethod3 - " + count);
+                int count = db.Folder.Count();
+                Debug.WriteLine(userStoryId + " - TestMethod3 - " + count);
+            }
         }
     }
 }

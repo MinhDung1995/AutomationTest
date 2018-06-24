@@ -1,0 +1,69 @@
+﻿(?) Why must store test data in json file?
+	Do file json nhẹ, và dễ chuyển sang những định dạng khác.
+	Dễ hiểu hơn code và dễ bỏ vào test case trên TFS.
+	Copy qua test case khác được.
+
+(?) Why must seperate test data into User Story, Test Case?
+	Dễ quản lý hơn (Chia để trị).
+	Hạn chế conflict khi làm nhiều người với git.
+	Tăng tốc độ load test data.
+
+(?) Test Data Json Rule
+	1. Mỗi US 1 Folder (Nên đặt theo US Id) theo mẫu US<US Id> bỏ trong thư mục TestData
+	2. Mỗi US có thể có 1 shared.json.
+	3. Mỗi TC 1 file json (Nên đặt theo TC Id) theo mẫu TC<TC id>
+	4. Hạn chế để test data trong shared.json. Dùng tối thiểu.
+	5. Nếu test data nhỏ, không nhất thiết bỏ vào file json.
+	6. Không hỗ trợ cho các đối tượng generic.
+	7. Cấu trúc cho 1 test data (1 đối tượng như Folder, File, ...) như sau:
+		"Key":
+			- Định danh duy nhất của test data. Duplicated sẽ quăng lỗi.
+			- Không phải code, có thể có dấu cách, không giới hạn chiều dài (hạn chế).
+			- Đặt phù hợp ngữ nghĩa và thoát ý.
+			- Quy tắt: Folder <Valid, Invalid, Invalid by Name>, List File <...>
+		"Type":
+			- Tên đối tượng dùng làm test data như (Folder, File, ListFile, ...).
+			- Mục đích để các testers dễ nhận biết loại test data.
+		"Tag": 
+			- Ghi những Test case nào dùng nó trong trường hợp test data trong file shared.json.
+			- Mục đích để các testers dễ nhận biết loại test data dùng bởi những test case nào.
+		"Description":
+			- Chú thích ngắn gọn trong trường hợp Key không đủ bật lên ngữ nghĩa.
+			- Hạn chế dùng.
+		"Data":
+			- Chứa data của test data theo dạng json.
+	8. File json cho phép bỏ nhiều loại đối tượng vô được. Nên sắp xếp theo loại.
+	9. Hỗ trợ auto generate data:
+		- Mảng byte ?MB, Chuỗi json ?MB
+			"AutoGenerate": {
+                "nMegaByte": 1
+            }
+		- String với chiều dài
+			"AutoGenerate": {
+                "Length": 256
+            }
+
+(?) Why must seperate test script into User Story, Test Case?
+	Dễ quản lý (Chia để trị).
+	Hạn chế conflict khi làm nhiều người với git.
+	Tăng tốc độ chạy unit test do chạy bất đồng bộ.
+	Nên chia xuống test case.
+	Trong trường hợp quá nhiều test case, có thể gom nhóm lại.
+
+(?) Why must clean data/delete db file?
+	Tiết kiệm bộ nhớ.
+	Không bị ảnh hưởng bởi data cũ trong trường hợp đổi cấu trúc dữ liệu.
+	Phải có CleanupTest chứa AssemblyInitialize & AssemblyCleanup để hỗ trợ clean data,
+		không để các test method khác vào đây.
+	Dùng using (LiteDatabaseHelper db = new LiteDatabaseHelper()) trong từng test method
+		để giải phóng bộ nhớ.
+
+(?) Why must have AutomationTest.Core in our project?
+	Do ta có thể automation test bằng unit test của microsoft hoặc dùng specflow.
+	Nên có AutomationTest.Core, ta dễ dàng chuyển test data + helpers + database config + constants
+	Và dùng lại được.
+
+(?) TestDataStorage dùng để lấy dữ liệu TestData lên (dễ dùng và tên hàm dễ hiểu).
+(?) LiteDatabaseHelper dùng để mô phỏng connection string + collection config của db thực.
+(?) CompareHelper hỗ trợ các hàm so sánh đối tượng.
+(?) Contants chứa thông tin exception message, hằng số,...

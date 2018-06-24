@@ -27,15 +27,6 @@ namespace AutomationTest.Core.Helpers
             return file;
         }
 
-        public static List<MyAttribute> GetAttributeList(string dataKey, string userStoryId, string testCaseId = "shared")
-        {
-            JsonTestDataReader reader = new JsonTestDataReader(userStoryId, testCaseId, dataKey);
-
-            List<MyAttribute> attributeList = reader.GetTestData<List<MyAttribute>>();
-
-            return attributeList;
-        }
-
         public static MyAttribute GetAttribute(string dataKey, string userStoryId, string testCaseId = "shared")
         {
             JsonTestDataReader reader = new JsonTestDataReader(userStoryId, testCaseId, dataKey);
@@ -43,6 +34,15 @@ namespace AutomationTest.Core.Helpers
             MyAttribute attribute = reader.GetTestData<MyAttribute>();
 
             return attribute;
+        }
+
+        public static List<MyAttribute> GetAttributeList(string dataKey, string userStoryId, string testCaseId = "shared")
+        {
+            JsonTestDataReader reader = new JsonTestDataReader(userStoryId, testCaseId, dataKey);
+
+            List<MyAttribute> attributeList = reader.GetTestData<List<MyAttribute>>();
+
+            return attributeList;
         }
     }
 }

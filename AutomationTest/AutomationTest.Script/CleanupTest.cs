@@ -1,9 +1,11 @@
 ﻿using App.Entities;
+using AutomationTest.Core.Helpers;
 using LiteDB;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,34 +19,29 @@ namespace AutomationTest.Script
         public static void AutomationTestIntialize(TestContext testContext)
         {
             // Clear Data In Db
-            LiteDatabase db = new LiteDatabase("demo.db");
-            db.GetCollection<Folder>("Data").Delete(x => x.CreatedDateTime < DateTime.Now);
-            List<LiteFileInfo> infoList = db.FileStorage.FindAll().ToList();
-            infoList.ForEach(info =>
-            {
-                db.FileStorage.Delete(info.Id);
-            });
+            ClearData();
 
-            int count = db.GetCollection<Folder>("Data").Count();
-            Debug.WriteLine("1st - " + count);
+            Debug.WriteLine("1st");
         }
 
         [AssemblyCleanup]
         public static void AutomationTestCleanup()
         {
             // Clear Data In Db
-            LiteDatabase db = new LiteDatabase("demo.db");
-            int countBefore = db.GetCollection<Folder>("Data").Count();
+            ClearData();
 
-            db.GetCollection<Folder>("Data").Delete(x => x.CreatedDateTime < DateTime.Now);
-            List<LiteFileInfo> infoList = db.FileStorage.FindAll().ToList();
-            infoList.ForEach(info =>
+            Debug.WriteLine("save the best for the last");
+        }
+
+        public static void ClearData()
+        {
+            string path;
+            using (LiteDatabaseHelper db = new LiteDatabaseHelper())
             {
-                db.FileStorage.Delete(info.Id);
-            });
+                path = db.ConnectionString;
+            }
 
-            int countAfter = db.GetCollection<Folder>("Data").Count();
-            Debug.WriteLine("save the best for the last - " + countBefore + "-" + countAfter);
+            File.Delete(path);
         }
     }
 }

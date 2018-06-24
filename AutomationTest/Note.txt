@@ -3,7 +3,11 @@
 	- Step 2: On 'Copy to Output Directory' => Choose 'Copy always'.
 	- Step 3: Rebuild solution.
 2. When update content of json file, remember to rebuild soltion.
-3. Common test data can put in shared.json each folder UserStory.
-4. Make sure your json follow rule and be valid json.
-5. If you want to make your json be pretty, use https://jsonformatter.org/.
-6. If you need validate your json, use https://jsonformatter.curiousconcept.com/.
+3. Common test data can put in shared.json each folder UserStory. Limited.
+4. If you want to make your json be pretty, use https://jsonformatter.org/.
+5. Add Type to each test data in order to let other testers understand object type easily.
+6. Add Tag to each test data in file shared.json to let other testers know what test cases use it.
+7. Make sure your json follow rule and be valid json.
+8. Make sure your json follow rule and be valid json.
+9. Make sure your json follow rule and be valid json.
+10. Make sure your json follow rule and be valid json.

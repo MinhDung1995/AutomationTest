@@ -13,7 +13,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTes
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Note", "Note", "{C2BE3505-2BDB-4868-9B1A-8319C49B9415}"
 	ProjectSection(SolutionItems) = preProject
+		AutomationTest.Core Skeleton.PNG = AutomationTest.Core Skeleton.PNG
+		AutomationTest.Script Skeleton.PNG = AutomationTest.Script Skeleton.PNG
+		Main Points.txt = Main Points.txt
 		Note.txt = Note.txt
+		Overview.png = Overview.png
+		TestDataStorage.PNG = TestDataStorage.PNG
 	EndProjectSection
 EndProject
 Global
